@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:155490512582:android:2f79948cea952df9",
+        "mobilesdk_app_id": "1:155490512582:android:1d998300551a0981",
         "android_client_info": {
-          "package_name": "com.blues.myapp"
+          "package_name": "com.myapp"
         }
       },
       "oauth_client": [
