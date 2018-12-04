@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "155490512582",
+    "firebase_url": "https://myapp-a64b0.firebaseio.com",
+    "project_id": "myapp-a64b0",
+    "storage_bucket": "myapp-a64b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155490512582:android:2f79948cea952df9",
+        "android_client_info": {
+          "package_name": "com.blues.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "155490512582-177qro30gs698a9tjr306do1njcr8llo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw4dez8GZ8TGKTnF29EdnBjWSiRMRujBM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
