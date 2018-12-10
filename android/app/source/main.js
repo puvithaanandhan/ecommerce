@@ -1,19 +1,31 @@
 import React , {Component} from 'react';
-import {Platform,TextInput,Button,View} from 'react-native';
+import {Platform,Text,Button,View} from 'react-native';
+import firebase from '@firebase/app';
+import '@firebase/auth';
 
- class Main extends Component{
+import {createBottomTabNavigator} from 'react-navigation';
+
+ class Main extends Component
+ {
+    state = { currentUser: null }
+
+    componentDidMount() {
+        const { currentUser } = firebase.auth()
+    
+        this.setState({ currentUser })
+      }
     render()
     {
+        const { currentUser } = this.state
         return(
             <View>
-                <TextInput placeholder="E-mail"/>
-                <TextInput placeholder="Password"/>
-                <Button title="Login"
-                 onPress={()=>this.props.navigation.navigate('home1')}
-
-                />
+                <Text>
+                    Hi {currentUser && currentUser.email}!
+                </Text>
+               
             </View>
         );
     }
 }
 export default Main;
+
