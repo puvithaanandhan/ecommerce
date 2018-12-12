@@ -1,41 +1,69 @@
-import React , {Component} from 'react';
-import {Platform,Text,Button,View} from 'react-native';
+import React from 'react';
+import { View, Button as LinkButton } from 'react-native';
+import { Form, Item, Input, Content, Button, Text, Spinner } from 'native-base';
+import PropTypes from 'prop-types';
+class Login extends React.Component {
+state = { email: null, password: null };
+render() {
+return (
+<View style={{ flex: 1 }}>
+<Content>
+<Form>
+<Item>
+<Input
+placeholder="e-mail"
+keyboardType={'email-address'}
+autoCapitalize={'none'}
+onChangeText={email => this.setState({ email })}
+/>
+</Item>
+<Item last>
+<Input
+placeholder="password"
+secureTextEntry
+onChangeText={password => this.setState({ password })}
 
-import firebase from '@firebase/app';
-import '@firebase/auth';
-import { TextInput } from 'react-native-gesture-handler';
- class Login extends React.Component
- {
-    state = { email: '', password: '', errorMessage: null }
-
-    handlelogin=()=>{
-        const {email,password}=this.state
-        firebase.auth().signInWithEmailAndPassword(email,password).then(()=>this.props.navigation.navigate('main')).catch(error=>this.setState({errorMessage:error.message}));
-        
-    }
-    render()
-    {
-        return(
-            <View>
-                <Text>Login</Text>
-                <TextInput
-                placeholder="E-mail"
-                onChangeText={email=>this.setState({email})}
-                value={this.state.email}/>  
-
-                <TextInput
-                placeholder="Password"
-                secureTextEntry
-                onChangeText={password=>this.setState({password})}
-                value={this.state.password}/>
-
-                <Button
-                title="Login"
-                onPress={this.handlelogin}
-                />
-
-           </View>
-        );
-    }
+/>
+</Item>
+<Button
+block
+disabled={this.props.loading}
+style={{ margin: 20 }}
+onPress={() =>
+this.props.login({
+email: this.state.email,
+password: this.state.password,
+})}
+>
+<Text>Login</Text>
+</Button>
+</Form>
+<LinkButton
+title={'or Register'}
+onPress={() => this.props.changeToRegister()}
+/>
+{this.props.loading && <Spinner />}
+</Content>
+{this.props.error && (
+<Text
+style={{
+alignSelf: 'center',
+color: 'red',
+position: 'absolute',
+bottom: 10,
+}}
+>
+{this.props.error}
+</Text>
+)}
+</View>
+);
 }
+}
+Login.propTypes = {
+error: PropTypes.string,
+loading: PropTypes.bool,
+login: PropTypes.func.isRequired,
+changeToRegister: PropTypes.func.isRequired,
+};
 export default Login;
