@@ -10,6 +10,7 @@ class ProductList extends React.Component
     static navigationOptions = {
         drawerLabel: 'Home',
         tabBarIcon: () => <Icon name="home" />,
+        
     };
     componentWillMount() 
     {
@@ -17,12 +18,15 @@ class ProductList extends React.Component
     }
     onProductPress(product) 
     {
-        this.props.navigation.navigate('Login', { product });
+        this.props.navigation.navigate('ProductDetail', { product });
     }
 
     render(){
         return(
             <ScrollView>
+                <View>
+                <Text>ProductList Page !</Text>
+                </View>
                 {this.props.loading && <Spinner/>}
 
             <List>
@@ -39,9 +43,7 @@ class ProductList extends React.Component
                     </ListItem>
                 ))}
             </List>
-            <View>
-                <Text>ProductList Page !</Text>
-            </View>
+            
             </ScrollView>
         );
     }

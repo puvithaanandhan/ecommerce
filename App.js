@@ -7,10 +7,13 @@ import thunk from 'redux-thunk';
 import productsReducer from './android/app/source/products';
 import userReducer from './android/app/source/user';
 import ProductList from './android/app/source/productlist';
+import ProductDetail from './android/app/source/productdetail';
 import MyProfile from './android/app/source/myprofile';
+import mycart from './android/app/source/mycart';
 
 const ProductsNavigator = createStackNavigator({
 ProductList: { screen: ProductList },
+ProductDetail: {screen : ProductDetail},
 
 });
 
@@ -37,6 +40,7 @@ else
   Navigator = createDrawerNavigator({
   Home: { screen: ProductsNavigator },
   MyProfile: { screen: MyProfile },
+ 
  
   });
 }
