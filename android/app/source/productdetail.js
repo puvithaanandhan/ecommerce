@@ -70,7 +70,7 @@ class ProductDetail extends React.Component
 }
 ProductDetail.propTypes = {
 navigation: PropTypes.any.isRequired,
-//addProductToCart: PropTypes.func.isRequired,
+addProductToCart: PropTypes.func.isRequired,
 };
 ProductDetail.navigationOptions = props => {
 const { navigation } = props;

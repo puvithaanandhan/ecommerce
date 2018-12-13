@@ -10,6 +10,7 @@ const RESET_CART = 'products/RESET_CART';
 // Reducer
 const initialState = {
 loading: false,
+cart:[],
 products: [],
 
 };
